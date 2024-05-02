@@ -19,7 +19,7 @@ export class userService {
                         loginTime : new Date()
                     }
 
-                    const token: string = jwt.sign(data, process.env.SECRETE_KEY as string,{expiresIn : "30s"});
+                    const token: string = jwt.sign(data, process.env.SECRETE_KEY as string,{expiresIn : "1d"});
                     // console.log(foundUser.id);
                     await userModel.updateOne({_id:foundUser.id},{$set : {token : token}});
                     return {message :'User logged in !!', token:token}

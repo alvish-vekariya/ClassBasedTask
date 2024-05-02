@@ -60,7 +60,7 @@ export class ProfileService{
     async updateProfile(profileID: string, updatedProfileName: string):Promise<object>{
         try{
             await profileModel.updateOne({_id:profileID},{$set : {"profileName" : updatedProfileName}});
-            return {200: "profile updated!!" };
+            return {200: "profile updated!!"};
         }catch(err:any){
             return {500: err.message}
         }
