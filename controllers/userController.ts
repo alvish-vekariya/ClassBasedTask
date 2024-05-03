@@ -5,13 +5,30 @@ const userServices: userService = new userService();
 
 
 export const loginUser = async (req:Request, res:Response)=>{
-    res.json(await userServices.login(req.body.username, req.body.password))
+
+    const username : string = req.body.username;
+    const password : string = req.body.password;
+
+    if(!username || !password) return res.status(404).json({404:"username and password are required!!"});
+
+    res.json(await userServices.login(username, password))
 }
 
 export const registerUser = async(req:Request, res:Response)=>{
-    res.json( await userServices.register(req.body.username, req.body.password));
+
+    const username : string = req.body.username;
+    const password : string = req.body.password;
+
+    if(!username || !password) return res.status(404).json({404:"username and password are required!!"});
+
+    res.json( await userServices.register(username, password));
 }
 
 export const logoutUser = async(req:Request, res:Response)=>{
-    res.json(await userServices.logout(req.body.username));
+
+    const username : string = req.body.username;
+
+    if(!username) return res.status(404).json({404 : "usename is required!!"});
+
+    res.json(await userServices.logout(username));
 }

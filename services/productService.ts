@@ -18,7 +18,7 @@ export class productService{
         }
     }
 
-    async updateProduct(productID:mongoose.Types.ObjectId, updatedName: string, updatedPrice: number):Promise<object>{
+    async updateProduct(productID:string, updatedName: string, updatedPrice: number):Promise<object>{
         // const productID: mongoose.Types.ObjectId = req.body.productID;
         // const updatedName : string = req.body.updatedName;
         // const updatedPrice : number = req.body.updatedPrice;
@@ -34,7 +34,7 @@ export class productService{
         }
     }
 
-    async deleteProduct(productID : mongoose.Types.ObjectId):Promise<object>{
+    async deleteProduct(productID : string):Promise<object>{
         // const productID  = req.body.productID;
 
         try{

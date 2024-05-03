@@ -52,7 +52,7 @@ export class userService {
             await userModel.updateOne({username: username},{$unset : {token : {$exists :true}}});
             return {200 : 'user logout!'};
         }catch(err:any){
-            return {500 : err.message}
+            return {500 : err.message};
         }
     }
 }

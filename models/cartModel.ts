@@ -15,16 +15,18 @@ const cartSchema = new mongoose.Schema<cartInterface>({
     },
     quantity: {
         type: Number,
-        min: [1, 'minimum ! item required!'],
+        min: [1, 'minimum 1 item required!'],
         required: true
     },
     total: {
         type: Number
     },
+},{
+    timestamps : true
 })
 
 cartSchema.pre('save', async function (next) {
-    const foundItem = await productModel.findOne({ id: this.productID });
+    const foundItem = await productModel.findOne({ _id: this.productID });
     if (foundItem) {
         try {
             const price = foundItem.price;

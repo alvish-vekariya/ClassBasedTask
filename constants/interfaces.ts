@@ -8,14 +8,15 @@ export interface userInterface{
 }
 
 export interface profileInterface{
-    id?: mongoose.Types.ObjectId,
+    _id?: mongoose.Schema.Types.ObjectId,
     profileName : string | undefined,
-    userID: mongoose.Types.ObjectId
+    userID: mongoose.Schema.Types.ObjectId,
+    __v ?: number
 }
 
 export interface cartInterface{
     id?: mongoose.Types.ObjectId,
-    profileID: mongoose.Types.ObjectId,
+    profileID: mongoose.Types.ObjectId | profileInterface,
     productID: mongoose.Types.ObjectId,
     quantity : number,
     total : number,
